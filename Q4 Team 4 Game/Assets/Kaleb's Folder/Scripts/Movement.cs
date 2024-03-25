@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     public KeyCode left, right, jump;
     public float buildup = 1, jumpheight = 1, maxspeed = 1;
     private Rigidbody2D rb2D;
+    public bool WASD = false;
 
     private void Start()
     {
@@ -15,19 +16,33 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        //Move the player to the left
-        if (Input.GetKey(left))
+        if (WASD == false)
         {
-            rb2D.AddForce(Vector2.left * buildup);
-        }
+            if (Input.GetKey(left))
+            {
+                rb2D.AddForce(Vector2.left * buildup);
+            }
 
-        //Move the player to the right
-        if (Input.GetKey(right))
+            if (Input.GetKey(right))
+            {
+                rb2D.AddForce(Vector2.right * buildup);
+            }
+        }
+        else if (WASD == true) 
         {
-            rb2D.AddForce(Vector2.right * buildup);
+            if (Input.GetKey(KeyCode.A))
+            {
+                rb2D.AddForce(Vector2.left * buildup);
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                rb2D.AddForce(Vector2.right * buildup);
+            }
         }
 
         //Make the player jump
+
         rb2D.velocity = new Vector2(Mathf.Clamp(rb2D.velocity.x, -maxspeed, maxspeed), rb2D.velocity.y);
     }
 }
