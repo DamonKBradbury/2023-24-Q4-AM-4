@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253b093409ea089429dcee415b54549c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitName: Jump Fruit
+  fruitName: Fire Fruit
 --- !u!1 &4211888338522661700
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6418752136481805269}
   - component: {fileID: 6192149303786851779}
   m_Layer: 0
-  m_Name: Jump Fruit
+  m_Name: Fire Fruit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
