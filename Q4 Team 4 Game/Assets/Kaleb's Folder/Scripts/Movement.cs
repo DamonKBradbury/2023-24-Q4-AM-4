@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     public KeyCode left, right, jump;
     public float buildup = 1, jumpheight = 1, maxspeed = 1;
     private Rigidbody2D rb2D;
-    public bool WASD = false;
+    public bool WASD;
     public GameObject player;
     public LayerMask groundLayer;
     private bool grounded => Physics2D.BoxCast(transform.position - new Vector3(0f, 0.51f), new Vector2(0.02f, 0.02f), 0, Vector2.zero, 1, groundLayer);
