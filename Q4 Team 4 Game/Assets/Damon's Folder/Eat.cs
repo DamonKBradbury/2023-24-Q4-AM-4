@@ -8,50 +8,84 @@ public class Eat : MonoBehaviour
     
     public void OnCollisionEnter2D (Collision2D collision)
     {
-        if ((collision.gameObject.GetComponent("Stats") as Stats) != null)
+
+        if ((collision.gameObject.GetComponent("PlayerStats") as PlayerStats) != null)
         {
 
              if (fruitName == "Jump Fruit")
              {
 
-                if (collision.gameObject.GetComponent<Stats>().hasEatenFFruit == true)
+                if (collision.gameObject.GetComponent<PlayerStats>().hasEatenFFruit == true)
                 {
-                    collision.gameObject.GetComponent<Stats>().hasEatenFFruit = false;
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenFFruit = false;
                 } 
-                else if (collision.gameObject.GetComponent<Stats>().hasEatenGFruit == true)
+                else if (collision.gameObject.GetComponent<PlayerStats>().hasEatenGFruit == true)
                 {
-                    collision.gameObject.GetComponent<Stats>().hasEatenGFruit = false;
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenGFruit = false;
+                }
+                else if (collision.gameObject.GetComponent<PlayerStats>().hasEatenAGFruit == true)
+                {
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenAGFruit = false;
                 }
 
-                collision.gameObject.GetComponent<Stats>().hasEatenJFruit = true;
+                collision.gameObject.GetComponent<PlayerStats>().fruitTimer = 30f;
+                collision.gameObject.GetComponent<PlayerStats>().hasEatenJFruit = true;
              }
              else if (fruitName == "Fire Fruit")
              {
 
-                if (collision.gameObject.GetComponent<Stats>().hasEatenJFruit == true)
+                if (collision.gameObject.GetComponent<PlayerStats>().hasEatenJFruit == true)
                 {
-                    collision.gameObject.GetComponent<Stats>().hasEatenJFruit = false;
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenJFruit = false;
                 }
-                else if (collision.gameObject.GetComponent<Stats>().hasEatenGFruit == true)
+                else if (collision.gameObject.GetComponent<PlayerStats>().hasEatenGFruit == true)
                 {
-                    collision.gameObject.GetComponent<Stats>().hasEatenGFruit = false;
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenGFruit = false;
+                }
+                else if (collision.gameObject.GetComponent<PlayerStats>().hasEatenAGFruit == true)
+                {
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenAGFruit = false;
                 }
 
-                collision.gameObject.GetComponent<Stats>().hasEatenFFruit = true;
+                collision.gameObject.GetComponent<PlayerStats>().fruitTimer = 30f;
+                collision.gameObject.GetComponent<PlayerStats>().hasEatenFFruit = true;
              }
              else if (fruitName == "Ghost Fruit")
              {
                 
-                if (collision.gameObject.GetComponent<Stats>().hasEatenJFruit == true)
+                if (collision.gameObject.GetComponent<PlayerStats>().hasEatenJFruit == true)
                 {
-                    collision.gameObject.GetComponent<Stats>().hasEatenJFruit = false;
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenJFruit = false;
                 }
-                else if (collision.gameObject.GetComponent<Stats>().hasEatenFFruit == true)
+                else if (collision.gameObject.GetComponent<PlayerStats>().hasEatenFFruit == true)
                 {
-                    collision.gameObject.GetComponent<Stats>().hasEatenFFruit = false;
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenFFruit = false;
+                }
+                else if (collision.gameObject.GetComponent<PlayerStats>().hasEatenAGFruit == true)
+                {
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenAGFruit = false;
                 }
 
-                collision.gameObject.GetComponent<Stats>().hasEatenGFruit = true;
+                collision.gameObject.GetComponent<PlayerStats>().fruitTimer = 30f;
+                collision.gameObject.GetComponent<PlayerStats>().hasEatenGFruit = true;
+             }
+             else if (fruitName == "Anti-Gravity Fruit")
+             {
+                if (collision.gameObject.GetComponent<PlayerStats>().hasEatenJFruit == true)
+                {
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenJFruit = false;
+                }
+                else if (collision.gameObject.GetComponent<PlayerStats>().hasEatenFFruit == true)
+                {
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenFFruit = false;
+                }
+                else if (collision.gameObject.GetComponent<PlayerStats>().hasEatenGFruit == true)
+                {
+                    collision.gameObject.GetComponent<PlayerStats>().hasEatenGFruit = false;
+                }
+
+                collision.gameObject.GetComponent<PlayerStats>().hasEatenAGFruit = true;
+                collision.gameObject.GetComponent<PlayerStats>().fruitTimer = 30f;
              }
 
           Destroy(gameObject);
