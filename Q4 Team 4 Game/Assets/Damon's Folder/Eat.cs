@@ -39,7 +39,7 @@ public class Eat : MonoBehaviour
 
                 collision.gameObject.GetComponent<Stats>().hasEatenFFruit = true;
              }
-              else if (fruitName == "Ghost Fruit")
+             else if (fruitName == "Ghost Fruit")
              {
                 
                 if (collision.gameObject.GetComponent<Stats>().hasEatenJFruit == true)

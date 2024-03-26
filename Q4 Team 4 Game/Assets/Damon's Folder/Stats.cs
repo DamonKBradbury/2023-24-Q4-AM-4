@@ -17,9 +17,11 @@ public class Stats : MonoBehaviour
 
 
     // Damage player
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        gameObject.GetComponent<Renderer>().material.color = Color.red;
+        if ((collision.gameObject.GetComponent("Stats") as Stats) != null)
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
+
         if (collision.gameObject.GetComponent<Stats>().damage >= 1)
         {
             health -= collision.gameObject.GetComponent<Stats>().damage;
@@ -30,6 +32,12 @@ public class Stats : MonoBehaviour
                 
             }
         }
+    }
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        if ((collision.gameObject.GetComponent("Stats") as Stats) != null)
+            gameObject.GetComponent<Renderer>().material.color = Color.white;
+        
     }
 
 
