@@ -5,6 +5,7 @@ using UnityEngine;
 public class Eat : MonoBehaviour
 {
     public string fruitName;
+    public float respawn;
     
     public void OnCollisionEnter2D (Collision2D collision)
     {
@@ -88,7 +89,17 @@ public class Eat : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerStats>().fruitTimer = 30f;
              }
 
-          Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-    } 
+
+    }
+    void Update()
+    {
+        respawn += Time.deltaTime;
+        if (respawn >= 60 && gameObject.activeInHierarchy == false)
+        {
+            respawn = 0f;
+            gameObject.SetActive(true);
+        }
+    }
 }

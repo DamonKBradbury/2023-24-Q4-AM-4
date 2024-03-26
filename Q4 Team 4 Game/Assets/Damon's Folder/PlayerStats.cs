@@ -84,7 +84,8 @@ public class PlayerStats : MonoBehaviour
         {
           hasEatenJFruit = false;
         }
-            fruitTimer = 0f;
+        fruitTimer = 0f;
+            timer.text = "";
       }
     }
 }
