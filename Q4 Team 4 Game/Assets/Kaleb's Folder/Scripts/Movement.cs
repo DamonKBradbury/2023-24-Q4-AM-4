@@ -8,6 +8,9 @@ public class Movement : MonoBehaviour
     public float buildup = 1, jumpheight = 1, maxspeed = 1;
     private Rigidbody2D rb2D;
     public bool WASD = false;
+    public GameObject player;
+    public LayerMask groundLayer;
+    private bool grounded => Physics2D.BoxCast(transform.position - new Vector3(0f, 0.51f), new Vector2(0.02f, 0.02f), 0, Vector2.zero, 1, groundLayer);
 
     private void Start()
     {
@@ -41,7 +44,16 @@ public class Movement : MonoBehaviour
             }
         }
 
-        //Make the player jump
+        if (grounded)
+        {
+            //Make the player jump
+            if (Input.GetKeyDown(jump))  //jump
+            {
+                rb2D.AddForce(Vector2.up * jumpheight, ForceMode2D.Impulse);
+            }
+        }
+
+        
 
         rb2D.velocity = new Vector2(Mathf.Clamp(rb2D.velocity.x, -maxspeed, maxspeed), rb2D.velocity.y);
     }
