@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Eat : MonoBehaviour
 {
     public string fruitName;
     public float respawn;
-    
+    Vector3 death = new Vector3(0,0,-1);
+    Vector3 alive = new Vector3(0,0,0);
+
     public void OnCollisionEnter2D (Collision2D collision)
     {
 
@@ -89,17 +92,21 @@ public class Eat : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerStats>().fruitTimer = 30f;
              }
 
-            gameObject.SetActive(false);
+
+            transform.position = death;
         }
 
     }
     void Update()
     {
-        respawn += Time.deltaTime;
-        if (respawn >= 60 && gameObject.activeInHierarchy == false)
+        if (gameObject.transform.position == death)
         {
-            respawn = 0f;
-            gameObject.SetActive(true);
+            respawn += Time.deltaTime;
+            if (respawn >= 60)
+            {
+                respawn = 0f;
+                transform.position = alive;
+            }
         }
     }
 }
