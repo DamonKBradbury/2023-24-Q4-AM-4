@@ -62,28 +62,23 @@ public class Movement : MonoBehaviour
         else { jumpHeld = false; }
 
 
-        if (!jumpHeld && !grounded && rb2D.velocity.y > 0)
-        {
-            rb2D.velocity = new Vector3(0, -sas, 0);
-            if (rb2D.velocity.x > 0)
-            {
-                rb2D.velocity = new Vector2(maxspeed, 0);
-            }
-            else if (rb2D.velocity.x < 0)
-            {
-                rb2D.velocity = new Vector3(-maxspeed, 0, 0);
-            }
-        }
-
+      // ISN'T WORKING  if (!jumpHeld && !grounded && rb2D.velocity.y > 0)
+      // ISN'T WORKING  {
+      // ISN'T WORKING      rb2D.velocity = new Vector3(0, -sas, 0);
+      // ISN'T WORKING      if (rb2D.velocity.x > 0)
+      // ISN'T WORKING      {
+      // ISN'T WORKING          rb2D.velocity = new Vector2(999 * maxspeed, 0);
+      // ISN'T WORKING      }
+      // ISN'T WORKING      else if (rb2D.velocity.x < 0)
+      // ISN'T WORKING      {
+      // ISN'T WORKING          rb2D.velocity = new Vector3(-999 * maxspeed, 0, 0);
+      // ISN'T WORKING      }
+      // ISN'T WORKING  }
+      // ISN'T WORKING
         if (Input.GetKeyDown(jump) && !grounded)
         {
             timeSinceJump = Time.time;
         }
-        if(grounded)
-        {
-            Debug.Log("Working!");
-        }
-
         rb2D.velocity = new Vector2(Mathf.Clamp(rb2D.velocity.x, -maxspeed, maxspeed), rb2D.velocity.y);
     }
     public void WASDswap(bool WASDon)
