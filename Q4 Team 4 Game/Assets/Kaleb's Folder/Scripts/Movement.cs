@@ -10,7 +10,8 @@ public class Movement : MonoBehaviour
     public bool WASD = true;
     public GameObject player;
     public LayerMask groundLayer;
-    private bool grounded => Physics2D.BoxCast(transform.position - new Vector3(0f, 0.51f), new Vector2(0.02f, 0.02f), 0, Vector2.zero, 1, groundLayer);
+    public float jumpbool;
+    private bool grounded => Physics2D.BoxCast(transform.position - new Vector3(0f, 0.51f), new Vector2(jumpbool, jumpbool), 0, Vector2.zero, 1, groundLayer);
     private bool jumpHeld;
     public float sas;
     private float timeSinceJump = -5;
