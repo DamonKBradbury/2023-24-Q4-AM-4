@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0f8ee84339537044ba859ae9455e010f
+guid: 23dc203dc787f2941afa7fe344983495
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -131,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lab wall 1_0
+      name: square wall copy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2877569d52b7544e948e65e0389ed1d
-      internalID: -1768465310
+      spriteID: fa03384e22d4fb7438ca9a3f17d55e2e
+      internalID: -719548537
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ce5ea28836313b3448fc83d5408a14e8
+    spriteID: 9838642c9015fa34a9858f48134307b6
     internalID: 0
     vertices: []
     indices: 
@@ -162,7 +162,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Lab wall 1_0: -1768465310
+      square wall copy_0: -719548537
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
