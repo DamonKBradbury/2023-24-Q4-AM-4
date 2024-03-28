@@ -78,6 +78,10 @@ public class Movement : MonoBehaviour
         {
             timeSinceJump = Time.time;
         }
+        if(grounded)
+        {
+            Debug.Log("Working!");
+        }
 
         rb2D.velocity = new Vector2(Mathf.Clamp(rb2D.velocity.x, -maxspeed, maxspeed), rb2D.velocity.y);
     }
