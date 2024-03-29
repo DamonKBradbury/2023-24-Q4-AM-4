@@ -7,8 +7,9 @@ public class Eat : MonoBehaviour
 {
     public string fruitName;
     public float respawn;
-    Vector3 death = new Vector3(0,0,-1);
-    Vector3 alive = new Vector3(0,0,0);
+    
+    Vector3 death = new Vector3(-100, -100, -100);
+    Vector3 alive = new Vector3();
 
     public void OnCollisionEnter2D (Collision2D collision)
     {
@@ -92,7 +93,7 @@ public class Eat : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerStats>().fruitTimer = 30f;
              }
 
-
+            alive = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             transform.position = death;
         }
 
