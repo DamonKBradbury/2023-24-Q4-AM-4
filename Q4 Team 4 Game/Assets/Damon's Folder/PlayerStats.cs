@@ -28,9 +28,9 @@ public class PlayerStats : MonoBehaviour
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
 
-            if (collision.gameObject.GetComponent<EnemyStats>().damage >= 1)
+            if (collision.gameObject.GetComponent<EnemyStats>().damageDealing >= 1)
             {
-                health -= collision.gameObject.GetComponent<EnemyStats>().damage;
+                health -= collision.gameObject.GetComponent<EnemyStats>().damageDealing;
                 gameObject.GetComponent<Renderer>().material.color = Color.red;
 
                 // Death
