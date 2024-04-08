@@ -12,11 +12,9 @@ public class Movement : MonoBehaviour
     public float jumpbool;
     private bool grounded => Physics2D.BoxCast(transform.position - new Vector3(0f, 0.51f), new Vector2(jumpbool, jumpbool), 0, Vector2.zero, 1, groundLayer);
     private bool jumpHeld;
-    public float sas;
     private float timeSinceJump = -5;
     float cooldown =  0.2f;
     private float xVelocity;
-    private bool godMode = false;
 
     private void Start()
     {
@@ -25,22 +23,6 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) 
-        {
-            rb2D.gravityScale = 0;
-            godMode = true;
-        }
-        if (godMode == true)
-        {
-            if(Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                rb2D.AddForce(Vector2.up * buildup);
-            }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                rb2D.AddForce(Vector2.down * buildup);
-            }
-        }
         if (WASD == false)
         {
             if (Input.GetKey(left))
@@ -83,7 +65,7 @@ public class Movement : MonoBehaviour
         if (!jumpHeld && !grounded && rb2D.velocity.y > 0)
         {
              xVelocity = rb2D.velocity.x;
-             rb2D.velocity = new Vector3(xVelocity, -sas, 0);
+             rb2D.velocity = new Vector3(xVelocity, 0, 0);
         }
       
         if (Input.GetKeyDown(jump) && !grounded)
