@@ -14,8 +14,9 @@ public class Movement : MonoBehaviour
     private bool jumpHeld;
     public float sas;
     private float timeSinceJump = -5;
-    public float cooldown;
+    float cooldown =  0.2f;
     private float xVelocity;
+    private bool godMode = false;
 
     private void Start()
     {
@@ -24,6 +25,22 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q)) 
+        {
+            rb2D.gravityScale = 0;
+            godMode = true;
+        }
+        if (godMode == true)
+        {
+            if(Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                rb2D.AddForce(Vector2.up * buildup);
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                rb2D.AddForce(Vector2.down * buildup);
+            }
+        }
         if (WASD == false)
         {
             if (Input.GetKey(left))
