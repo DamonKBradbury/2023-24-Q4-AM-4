@@ -6,18 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
     Scene scene;
-    public static string nam = "Hola! Como Estas! Donde esta la biblioteca!";
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static string nam;
     public void MainMenu()
     {
         Time.timeScale = 1f;
