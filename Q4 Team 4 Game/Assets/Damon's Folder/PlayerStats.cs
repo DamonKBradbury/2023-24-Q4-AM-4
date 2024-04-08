@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class PlayerStats : MonoBehaviour
                 // Death
                 if (health <= 0)
                 {
-
+                    Console.WriteLine("YOU DIED");
                 }
             }
         }

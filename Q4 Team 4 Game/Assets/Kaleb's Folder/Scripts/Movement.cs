@@ -12,9 +12,8 @@ public class Movement : MonoBehaviour
     public float jumpbool;
     private bool grounded => Physics2D.BoxCast(transform.position - new Vector3(0f, 0.51f), new Vector2(jumpbool, jumpbool), 0, Vector2.zero, 1, groundLayer);
     private bool jumpHeld;
-    public float sas;
     private float timeSinceJump = -5;
-    public float cooldown;
+    float cooldown =  0.2f;
     private float xVelocity;
 
     private void Start()
@@ -66,7 +65,7 @@ public class Movement : MonoBehaviour
         if (!jumpHeld && !grounded && rb2D.velocity.y > 0)
         {
              xVelocity = rb2D.velocity.x;
-             rb2D.velocity = new Vector3(xVelocity, -sas, 0);
+             rb2D.velocity = new Vector3(xVelocity, 0, 0);
         }
       
         if (Input.GetKeyDown(jump) && !grounded)
